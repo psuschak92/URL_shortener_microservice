@@ -1,7 +1,7 @@
 const express = require('express');
 const server = express();
 const dns = require('dns');
-const PORT = process.env.port || 3000;
+const PORT = process.env.PORT || 3000;
 const path = require('path');
 
 server.use('/',express.static(path.join(__dirname, 'public')));
@@ -23,7 +23,6 @@ server.get('/api/shorturl/:id', (req, res, next) => {
         } else {
             console.log(url);
             res.redirect(url.originalURL);
-            
         }
     });
 });
